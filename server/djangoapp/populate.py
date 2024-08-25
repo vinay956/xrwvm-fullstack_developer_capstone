@@ -16,7 +16,6 @@ def initiate():
             CarMake.objects.create(name=data['name'], description=data['description'])
         )
 
-    # Create CarModel instances with the corresponding CarMake instances
     car_model_data = [
         {"name": "Pathfinder", "type": "SUV", "year": 2023, "car_make": car_make_instances[0]},
         {"name": "Qashqai", "type": "SUV", "year": 2023, "car_make": car_make_instances[0]},
