@@ -17,17 +17,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    (
-        'https://basavavkmca2-8000.theiadockernext-0-labs-prod-'
-        'theiak8s-4-tor01.proxy.cognitiveclass.ai'
-    ),
+    'https://basavavkmca2-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    (
-        'https://basavavkmca2-8000.theiadockernext-0-labs-prod-'
-        'theiak8s-4-tor01.proxy.cognitiveclass.ai'
-    ),
+    'https://basavavkmca2-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
 ]
 
 REST_FRAMEWORK = {
