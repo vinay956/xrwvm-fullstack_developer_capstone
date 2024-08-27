@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import CarMake, CarModel
 from .populate import initiate
+from .restapis import get_request, post_review, analyze_review_sentiments
 #from .utils import get_request, analyze_review_sentiments  # Removed unused `post_review`
 
 # Get an instance of a logger

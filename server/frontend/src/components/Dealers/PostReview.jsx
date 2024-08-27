@@ -18,9 +18,23 @@ const PostReview = () => {
   let params = useParams();
   let id =params.id;
   let dealer_url = root_url+`djangoapp/dealer/${id}`;
-  let review_url = root_url+`djangoapp/add_review`;
+  let review_url = root_url+`djangoapp/add_review/`;
   let carmodels_url = root_url+`djangoapp/get_cars`;
 
+  const getCookie = (name) => {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim(); console.log(cookie);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
   const postreview = async ()=>{
     let name = sessionStorage.getItem("firstname")+" "+sessionStorage.getItem("lastname");
     //If the first and second name are stores as null, use the username
@@ -48,10 +62,12 @@ const PostReview = () => {
     });
 
     console.log(jsoninput);
+    const csrftoken = getCookie('csrftoken');
     const res = await fetch(review_url, {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken
       },
       body: jsoninput,
   });
